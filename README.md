@@ -19,4 +19,14 @@ en el sistema de calificación de estudiante usaré de ejemplo a cuatro estudian
 ​Variables para las estadísticas (suma total, nota más alta, nota más baja, y los contadores de aprobados/reprobados).
 ​2. El Ciclo Principal (Captura de Datos)
 ​Usamos un ciclo for que se repite según la cantidad de estudiantes que hayas indicado. Dentro de este ciclo sucede lo siguiente:
-​Lectura del Nombre: Se pide el nombre y se guarda en su posición correspondiente del arreglo.
+​Lectura del Nombre: Se pide el nombre y se guarda en su posición correspondiente del arreglo.Usamos getline para que, si escribes un nombre y un apellido, el programa no se confunda con el espacio.
+​Segundo Ciclo (Las 4 Notas): Dentro de cada estudiante, hay otro ciclo for que corre 4 veces. Aquí es donde ocurre la validación: usamos un do-while que "obliga" al usuario a ingresar un número entre 0 y 100. Si pones un 105, el programa te dará error y te pedirá la nota otra vez.
+​Búsqueda de Máximos y Mínimos: Cada vez que ingresas una nota, el programa la compara con la notaMasAlta y notaMasBaja que tenemos guardadas para actualizarlas si es necesario.
+​3. Cálculos por Estudiante
+​Una vez que se terminan de pedir las 4 notas de un alumno:
+​Se calcula su promedio individual (suma de sus notas / 4).
+​Ese promedio se guarda en el arreglo promedios[i].
+​Se suma ese promedio a una variable global para luego sacar el promedio de todo el curso.
+​Se verifica si el promedio es mayor o igual a 70 para sumarlo a la cuenta de "Aprobados" o "Reprobados".
+​4. Mostrar Resultados
+​Al final, el programa recorre el arreglo de nombres y el de promedios simultáneamente para mostrarte la lista limpia. Luego imprime las estadísticas finales que fue acumulando durante todo el proceso.
