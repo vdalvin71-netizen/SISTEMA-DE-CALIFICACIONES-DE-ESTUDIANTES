@@ -1,0 +1,87 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    int cantidad;
+
+    // pedir cantidad de estudiantes
+    do {
+        cout << "Cuantos estudiantes hay (1-20): ";
+        cin >> cantidad;
+    } while (cantidad < 1 || cantidad > 20);
+
+    string nombres[20];
+    float promedios[20];
+
+    float sumaGeneral = 0;
+    float mayor = 0;
+    float menor = 100;
+    int aprobados = 0;
+    int reprobados = 0;
+
+    cin.ignore(); // limpiar buffer
+
+    for (int i = 0; i < cantidad; i++) {
+        cout << "\nEstudiante " << i + 1 << endl;
+
+        cout << "Nombre: ";
+        getline(cin, nombres[i]);
+
+        float suma = 0;
+
+        for (int j = 0; j < 4; j++) {
+            float nota;
+
+            do {
+                cout << "Nota " << j + 1 << ": ";
+                cin >> nota;
+
+                if (nota < 0 || nota > 100) {
+                    cout << "Nota invalida (0-100)" << endl;
+                }
+
+            } while (nota < 0 || nota > 100);
+
+            suma += nota;
+
+            if (nota > mayor) {
+                mayor = nota;
+            }
+
+            if (nota < menor) {
+                menor = nota;
+            }
+        }
+
+        promedios[i] = suma / 4;
+        sumaGeneral += promedios[i];
+
+        if (promedios[i] >= 70) {
+            aprobados++;
+        } else {
+            reprobados++;
+        }
+
+        cin.ignore(); // para que no falle el siguiente nombre
+    }
+
+    // mostrar resultados
+    cout << "\n------ RESULTADOS ------" << endl;
+    cout << left << setw(15) << "Nombre" << "Promedio" << endl;
+
+    for (int i = 0; i < cantidad; i++) {
+        cout << left << setw(15) << nombres[i]
+             << fixed << setprecision(2) << promedios[i] << endl;
+    }
+
+    cout << "\nPromedio general: " << sumaGeneral / cantidad << endl;
+    cout << "Nota mayor: " << mayor << endl;
+    cout << "Nota menor: " << menor << endl;
+    cout << "Aprobados: " << aprobados << endl;
+    cout << "Reprobados: " << reprobados << endl;
+
+    return 0;
+}
