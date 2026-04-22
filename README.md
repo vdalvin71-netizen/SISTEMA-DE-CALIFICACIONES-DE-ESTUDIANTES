@@ -12,8 +12,8 @@ en el sistema de calificación de estudiante usaré de ejemplo a cuatro estudian
 
 # Esplicacion mas profunda
 
-​1. Preparación y Variables
-​Primero, definimos los "contenedores" donde guardaremos la información. Como el ejercicio pide un máximo de 20 estudiantes, creamos:
+​Preparación y Variables
+​Primero, definimos los "contenedores" donde guardaremos la información. Como el ejercicio pide un máximo de 20 estudiantes, 
 ​Un arreglo de strings para los nombres: nombres[20].
 ​Un arreglo de números decimales para los promedios: promedios[20].
 
